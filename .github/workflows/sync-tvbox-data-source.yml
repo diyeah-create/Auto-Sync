@@ -29,13 +29,37 @@ jobs:
           
           # 确保目标目录存在
           mkdir -p "Tvbox/DataSource/DataA"
-          
-          # 复制文件
+          mkdir -p "Tvbox/DataSource/DataB"
+
+          # 复制文件到 DataA
           cp -rf "$TEMP_DIR/"* "Tvbox/DataSource/DataA/"
-          
-          # 添加标注文件
+
+          # 添加标注文件到 DataA
           echo "# 这是多仓配置文件" > "Tvbox/DataSource/DataA/lmw.json.info"
           echo "# 这是单仓配置文件" > "Tvbox/DataSource/DataA/lzxw.json.info"
+
+          # 同步 DataB 目录的文件
+          echo "开始同步 DataB 目录文件..."
+
+          # 下载 a.json
+          curl -L -o "Tvbox/DataSource/DataB/a.json" "https://raw.githubusercontent.com/zyzyzy523/api/main/a.json"
+
+          # 下载 lives.json
+          curl -L -o "Tvbox/DataSource/DataB/lives.json" "https://raw.githubusercontent.com/zyzyzy523/api/main/lives.json"
+
+          # 下载 tv.txt
+          curl -L -o "Tvbox/DataSource/DataB/tv.txt" "https://raw.githubusercontent.com/zyzyzy523/api/refs/heads/main/tv.txt"
+
+          # 下载 l.txt
+          curl -L -o "Tvbox/DataSource/DataB/l.txt" "https://raw.githubusercontent.com/zyzyzy523/api/refs/heads/main/l.txt"
+
+          # 添加 DataB 目录的说明文件
+          echo "# DataB 数据源文件" > "Tvbox/DataSource/DataB/README.md"
+          echo "此目录包含从 https://github.com/zyzyzy523/api 同步的文件：" >> "Tvbox/DataSource/DataB/README.md"
+          echo "- a.json: API 配置文件" >> "Tvbox/DataSource/DataB/README.md"
+          echo "- lives.json: 直播源配置" >> "Tvbox/DataSource/DataB/README.md"
+          echo "- tv.txt: 电视源列表" >> "Tvbox/DataSource/DataB/README.md"
+          echo "- l.txt: 其他配置文件" >> "Tvbox/DataSource/DataB/README.md"
           
           # 更新 README.md 中的订阅地址
           if [ -f "Tvbox/DataSource/DataA/README.md" ]; then
@@ -68,11 +92,12 @@ jobs:
           
           # 强制添加更改
           git add -f "Tvbox/DataSource/DataA"
-          
+          git add -f "Tvbox/DataSource/DataB"
+
           # 如果有更改则提交
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: sync tvbox tomorrow | 源提交: $COMMIT_MSG | Hash: $COMMIT_HASH"
+            git commit -m "chore: sync tvbox data sources | DataA: $COMMIT_MSG | Hash: $COMMIT_HASH | DataB: zyzyzy523/api"
             git push
           fi
