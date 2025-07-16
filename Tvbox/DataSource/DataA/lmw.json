@@ -1,5 +1,9 @@
 {
   "urls": [
+     {
+      "url": "https://9877.kstore.space/AnotherD/api.json",
+      "name": "😎潇洒😎🚦"
+    }, 
   {
       "url": "https://mi.mpanso.me/DEMO.json",
       "name": "💫小米💫🚦"
@@ -14,7 +18,7 @@
     },
     {
       "url": "http://ok321.top/tv",
-      "name": "🤓OK🤓丨(注意:此接口只能用于OK影视)"
+      "name": "🤓OK🤓🚦"
     },
     {
       "url": "http://74.120.175.78/JK/XYQTVBox/dj.json",
