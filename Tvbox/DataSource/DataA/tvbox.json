@@ -13,7 +13,7 @@
     "sites": [
         {
             "key": "豆瓣",
-            "name": "🍒豆瓣┃推荐",
+            "name": "🍒免费┃接口",
             "type": 3,
             "api": "csp_Douban",
             "searchable": 0,
@@ -32,6 +32,78 @@
                 "type": "rect",
                 "ratio": 1.297
             }
+        },
+        {
+            "key": "哔哩集合",
+            "name": "🅱️哔哩┃集合",
+            "type": 3,
+            "api": "csp_Bili",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.433
+            },
+            "ext": {
+                "json": "./lib/bili.json"
+            }
+        },
+        {
+            "key": "热播",
+            "name": "🔥热播丨影视",
+            "type": 3,
+            "api": "./lib/热播.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60
+        },
+        {
+            "key": "天天",
+            "name": "🌤️天天丨影视",
+            "type": 3,
+            "api": "./lib/天天.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60
+        },
+        {
+            "key": "浪酷",
+            "name": "🌊浪酷丨影视",
+            "type": 3,
+            "api": "./lib/浪酷.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60
+        },
+        {
+            "key": "若惜app",
+            "name": "🍒若惜┃影视",
+            "type": 3,
+            "api": "csp_Getapp",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "host": "http://110.40.59.188:9527",
+                "datakey": "ebad3f1a58b13933",
+                "dataiv": "ebad3f1a58b13933"
+            }
+        },
+        {
+            "key": "金牌影院",
+            "name": "🏅金牌┃影院",
+            "type": 3,
+            "api": "csp_Jinpai",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
         },
         {
             "key": "木耳",
@@ -53,21 +125,17 @@
             "quickSearch": 0
         },
         {
-            "key": "低端影视",
-            "name": "🌈低端┃蓝光",
+            "key": "星芽短剧",
+            "name": "🌱星芽┃短剧",
             "type": 3,
-            "api": "csp_Ddys",
-            "playerType": 2,
+            "api": "csp_Xydj",
             "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": {
-                "site": "https://ddys.pro"
-            }
+            "quickSearch": 0,
+            "changeable": 0
         },
         {
             "key": "Tgsoukk",
-            "name": "🔍TG搜┃夸克",
+            "name": "🔍TG┃夸克",
             "type": 3,
             "api": "csp_Tgsoukk",
             "searchable": 1,
@@ -75,7 +143,7 @@
         },
         {
             "key": "Tgsouuc",
-            "name": "🔍TG搜┃UC",
+            "name": "🔍TG┃UC",
             "type": 3,
             "api": "csp_Tgsouuc",
             "searchable": 1,
@@ -83,31 +151,15 @@
         },
         {
             "key": "Tgsoubd",
-            "name": "🔍TG搜┃百度",
+            "name": "🔍TG┃百度",
             "type": 3,
             "api": "csp_Tgsoubd",
             "searchable": 1,
             "changeable": 0
         },
         {
-            "key": "Tgsou123",
-            "name": "🔍TG搜┃123",
-            "type": 3,
-            "api": "csp_Tgsou123",
-            "searchable": 1,
-            "changeable": 0
-        },
-        {
-            "key": "Tgsouty",
-            "name": "🔍TG搜┃天翼",
-            "type": 3,
-            "api": "csp_Tgsouty",
-            "searchable": 1,
-            "changeable": 0
-        },
-        {
             "key": "Tgsou",
-            "name": "🔍TG搜┃聚合",
+            "name": "🔍TG┃聚合",
             "type": 3,
             "api": "csp_Tgsou",
             "searchable": 1,
@@ -123,23 +175,10 @@
             "changeable": 1
         },
         {
-            "key": "小虎斑",
-            "name": "🔴小斑┃4K",
-            "type": 3,
-            "api": "csp_wozz",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30,
-            "ext": {
-                "site": "http://xsayang.fun:12512"
-            }
-        },
-        {
             "key": "奥秘",
             "name": "🔴奥秘┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -152,7 +191,7 @@
             "key": "虎斑",
             "name": "🔴虎斑┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -165,7 +204,7 @@
             "key": "多多影音",
             "name": "🔴多多┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -178,7 +217,7 @@
             "key": "二小网盘",
             "name": "🔴二小┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -190,7 +229,7 @@
             "key": "闪电网盘",
             "name": "🔴闪电┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -202,7 +241,7 @@
             "key": "至臻网盘",
             "name": "🔴至臻┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -214,19 +253,19 @@
             "key": "木偶哥哥",
             "name": "🔴木偶┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
             "ext": {
-                "site": "http://123.666291.xyz"
+                "site": "http://muou.6qu.top,http://123.666291.xyz,https://mogg.5568.eu.org,https://mo.91muou.icu,https://mo.666291.xyz"
             }
         },
         {
             "key": "蜡笔网盘",
             "name": "🔴蜡笔┃4K",
             "type": 3,
-            "api": "csp_wozz",
+            "api": "csp_Mogg",
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
@@ -235,48 +274,13 @@
             }
         },
         {
-            "key": "雷鲸",
-            "name": "🐳雷鲸┃天翼",
+            "key": "采集",
+            "name": "🌀采集┃线路",
             "type": 3,
-            "api": "csp_LeiJing",
+            "api": "csp_Ptt",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1
-        },
-        {
-            "key": "夸克盘社",
-            "name": "🌐夸克┃盘社",
-            "type": 3,
-            "api": "csp_Kwps",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
-            "key": "新芽",
-            "name": "🌱星芽┃短剧",
-            "type": 3,
-            "api": "csp_Xydj",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
-            "key": "樱花",
-            "name": "🌸樱花┃动漫",
-            "type": 3,
-            "api": "csp_Yhdm",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
-            "key": "企鹅体育",
-            "name": "🏆企鹅丨体育",
-            "type": 4,
-            "api": "https://catbox.n13.club/t9/qietiyu.php",
-            "searchable": 0,
-            "quickSearch": 0
         },
         {
             "key": "push_agent",
