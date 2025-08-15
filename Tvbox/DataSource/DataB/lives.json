@@ -1,5 +1,5 @@
 {
-  "spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/EIsty1hL.png;md5;555ac22ba2d83525a2c09b8e5ebecfd4",
+  "spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/RinpMUTd.png;md5;198f97bcffbf5e17ed99853cf3c881a7",
   "wallpaper": "http://tool.teyonds.com/api",
   "logo": "https://s1.imagehub.cc/images/2025/01/15/e8b21391c58ed454c13ade26c003e857.gif",
   "lives": [
@@ -8,8 +8,7 @@
       "type": 0,
       "boot": true,
       "url": "https://boxtest.s3.bitiful.net/tv.txt",
-      "epg": "http://cdn.1678520.xyz/epg/?ch={name}&date={date}",
-      "ua": "okhttp/3.15,AptvPlayer/1.4.0",
+      "ua": "AptvPlayer-UA",
       "timeout": "10",
       "playerType": 1
     }
@@ -36,42 +35,42 @@
     {"key":"csp_Btt","name":"🌞比特┃在线","type":3,"api":"csp_BttGuard","searchable":1,"quickSearch":1,"changeable":1, "timeout": 10},
 
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"移动","name":"移动","type":3,"api":"csp_YD","searchable":1,"quickSearch":1},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"瓜萌","name":"瓜萌｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"https://www.guahd.com/1.txt","dataKey":"f2A7D4B9E8C16531","dataIv":"f2A7D4B9E8C16531","deviceId":"","version":""}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"APP4K","name":"☀️蓝光┃App","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"http://122.228.193.2:9654","dataKey":"ca94b06ca3c7d80e","dataIv":"ca94b06ca3c7d80e","deviceId":"","version":"119"}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"云云","name":"云云｜APP","type":3,"quickSearch":1,"api":"csp_AppGet2","ext":{"url":"","site":"https://staraugust123456.oss-cn-hangzhou.aliyuncs.com/1.txt","dataKey":"staraugust123456","dataIv":"staraugust123456","deviceId":"","version":"120"}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"爱看","name":"爱看丨APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"http://154.37.220.65","dataKey":"uI1TkPJC8B46AyN3","dataIv":"uI1TkPJC8B46AyN3","deviceId":"2112fc5eac600314ba95c4d65da9286b3","version":"120"}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"鲸鱼","name":"鲸鱼｜APP","type":3,"quickSearch":1,"api":"csp_AppGet2","ext":{"url":"","site":"https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/1.json","dataKey":"AAdgrdghjfgswerA","dataIv":"AAdgrdghjfgswerA","deviceId":"","version":""}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"移动","name":"移动","type":3,"api":"csp_YD","searchable":1,"quickSearch":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"瓜萌","name":"瓜萌｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"https://www.guahd.com/1.txt","dataKey":"f2A7D4B9E8C16531","dataIv":"f2A7D4B9E8C16531","deviceId":"","version":""}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"APP4K","name":"☀️蓝光┃App","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"http://122.228.193.2:9654","dataKey":"ca94b06ca3c7d80e","dataIv":"ca94b06ca3c7d80e","deviceId":"","version":"119"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"云云","name":"云云｜APP","type":3,"quickSearch":1,"api":"csp_AppGet2","ext":{"url":"","site":"https://staraugust123456.oss-cn-hangzhou.aliyuncs.com/1.txt","dataKey":"staraugust123456","dataIv":"staraugust123456","deviceId":"","version":"120"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"爱看","name":"爱看丨APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"http://154.37.220.65","dataKey":"uI1TkPJC8B46AyN3","dataIv":"uI1TkPJC8B46AyN3","deviceId":"2112fc5eac600314ba95c4d65da9286b3","version":"120"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"鲸鱼","name":"鲸鱼｜APP","type":3,"quickSearch":1,"api":"csp_AppGet2","ext":{"url":"","site":"https://jingyu4k-1312635929.cos.ap-nanjing.myqcloud.com/1.json","dataKey":"AAdgrdghjfgswerA","dataIv":"AAdgrdghjfgswerA","deviceId":"","version":""}},
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"星河","name":"星河｜APP","type":3,"quickSearch":1,"api":"csp_AppSy","ext":{"url":"http://192.140.161.171:2563","key1":"aassddwwxxllsx1x","key2":"aassddwwxxllsx1x","key3":"aassddwwxxllsx1x"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"星河","name":"星河｜APP","type":3,"quickSearch":1,"api":"csp_AppSy","ext":{"url":"http://192.140.161.171:2563","key1":"aassddwwxxllsx1x","key2":"aassddwwxxllsx1x","key3":"aassddwwxxllsx1x"}},
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"橘子","name":"橘子｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"http://t.bffree.cn/1.txt","dataKey":"2015692015692015","dataIv":"2015692015692015","deviceId":"","version":"300"}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"灵虎","name":"灵虎｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"https://bind.315999.xyz/89.txt","dataKey":"#getapp@TMD@2025","dataIv":"#getapp@TMD@2025","deviceId":"","version":""}},
-
-
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"农民影视","name":"农民｜影视","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/农民影视.json"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"csp_DiDuan","name":"低端｜影视","type":3,"api":"csp_Ddys","searchable":1,"quickSearch":1,"filterable":1},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"csp_Qiyou","name":"🦌奇优","type":3,"api":"csp_Qiyou","searchable":1,"quickSearch":1,"filterable":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"橘子","name":"橘子｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"http://t.bffree.cn/1.txt","dataKey":"2015692015692015","dataIv":"2015692015692015","deviceId":"","version":"300"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"灵虎","name":"灵虎｜APP","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"","site":"https://bind.315999.xyz/89.txt","dataKey":"#getapp@TMD@2025","dataIv":"#getapp@TMD@2025","deviceId":"","version":""}},
 
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"电影牛","name":"影牛｜影视","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/电影牛.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"农民影视","name":"农民｜影视","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/农民影视.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"csp_DiDuan","name":"低端｜影视","type":3,"api":"csp_Ddys","searchable":1,"quickSearch":1,"filterable":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"csp_Qiyou","name":"🦌奇优","type":3,"api":"csp_Qiyou","searchable":1,"quickSearch":1,"filterable":1},
 
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"csp_SixV","name":"🧲新6V","type":3,"api":"csp_New6v","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://www.xb6v.com"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"80S","name":"80S｜磁力","type":3,"api":"csp_BLSGod","playerType":1,"searchable":1,"quickSearch":1,"filterable":1},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"修罗影视","name":"修罗｜磁力","type":3,"api":"csp_HBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/修罗影视.json"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"狐狸君","name":"狐狸君｜磁力","type":3,"api":"csp_HBPQ","changeable":1,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/狐狸君.json"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"布谷TV","name":"布谷TV｜磁力","type":3,"api":"csp_HBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/布谷TV.json"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"Mp4电影","name":"Mp4电影｜磁力","type":3,"api":"csp_Mp4Mov","searchable":1,"quickSearch":1,"filterable":1},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"美剧天堂","name":"美剧天堂｜磁力","type":3,"api":"csp_MeijuTT","searchable":1,"quickSearch":1,"filterable":1},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"电影港","name":"电影港｜磁力","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/电影港.json"},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"荐片","name":"荐片｜磁力","api":"csp_Jianpian","type":3},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"电影牛","name":"影牛｜影视","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/电影牛.json"},
+
+
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"csp_SixV","name":"🧲新6V","type":3,"api":"csp_New6v","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://www.xb6v.com"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"80S","name":"80S｜磁力","type":3,"api":"csp_BLSGod","playerType":1,"searchable":1,"quickSearch":1,"filterable":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"修罗影视","name":"修罗｜磁力","type":3,"api":"csp_HBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/修罗影视.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"狐狸君","name":"狐狸君｜磁力","type":3,"api":"csp_HBPQ","changeable":1,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/狐狸君.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"布谷TV","name":"布谷TV｜磁力","type":3,"api":"csp_HBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XBPQ/布谷TV.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"Mp4电影","name":"Mp4电影｜磁力","type":3,"api":"csp_Mp4Mov","searchable":1,"quickSearch":1,"filterable":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"美剧天堂","name":"美剧天堂｜磁力","type":3,"api":"csp_MeijuTT","searchable":1,"quickSearch":1,"filterable":1},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"电影港","name":"电影港｜磁力","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://boxtest.s3.bitiful.net/XYQHiker/电影港.json"},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"荐片","name":"荐片｜磁力","api":"csp_Jianpian","type":3},
 
     {"key":"yhdm","name":"🌸樱花┃动漫","type": 3,"api": "csp_YHDMGuard","searchable":1,"quickSearch":1,"filterable":1,"timeout": 15},
     {"key":"动漫巴士","name":"🚌巴士┃动漫","type": 3,"api":"csp_Dm84Guard","searchable":1,"quickSearch":1,"filterable":1,"timeout":10},
 
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"曼波动漫","name":"曼波｜动漫","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"https://app.omofun1.top","dataKey":"66dc309cbeeca454","dataIv":"66dc309cbeeca454","deviceId":"","version":""}},
-    {"jar":"http://pan.aa53.cn/down.php/8c309d4f3304a7a7234940044e0c5a13.jar;md5;8c309d4f3304a7a7234940044e0c5a13","key":"次元动漫","name":"次元｜动漫","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"https://jjjj.nilinili.org","dataKey":"672263e98f232a05","dataIv":"672263e98f232a05","deviceId":"","version":"170"}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"曼波动漫","name":"曼波｜动漫","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"https://app.omofun1.top","dataKey":"66dc309cbeeca454","dataIv":"66dc309cbeeca454","deviceId":"","version":""}},
+    {"jar":"http://pan.aa53.cn/down.php/ecf65282d2c135755e721bc16edf001d.jar;md5;ecf65282d2c135755e721bc16edf001d","key":"次元动漫","name":"次元｜动漫","type":3,"quickSearch":1,"api":"csp_AppGet","ext":{"url":"https://jjjj.nilinili.org","dataKey":"672263e98f232a05","dataIv":"672263e98f232a05","deviceId":"","version":"170"}},
 
     {"key":"星芽短剧","name":"💖星芽┃短剧","type":3,"api":"csp_AppXYGuard","searchable":1,"quickSearch":1,"filterable":1,"timeout":10},
     {"key":"甜圈短剧","name":"🌸甜圈┃短剧","type":3,"api":"csp_TianQuanGuard","searchable":1,"quickSearch":1,"filterable":1,"timeout":10},
