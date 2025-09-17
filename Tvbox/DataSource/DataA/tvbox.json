@@ -50,92 +50,17 @@
             }
         },
         {
-            "key": "热播",
-            "name": "🔥热播丨影视",
+            "key": "采集",
+            "name": "🌀采集┃线路",
             "type": 3,
-            "api": "./lib/热播.py",
+            "api": "csp_Ptt",
             "searchable": 1,
             "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 60
-        },
-        {
-            "key": "天天",
-            "name": "🌤️天天丨影视",
-            "type": 3,
-            "api": "./lib/天天.py",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 60
-        },
-        {
-            "key": "浪酷",
-            "name": "🌊浪酷丨影视",
-            "type": 3,
-            "api": "./lib/浪酷.py",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 60
-        },
-        {
-            "key": "若惜app",
-            "name": "🍒若惜┃影视",
-            "type": 3,
-            "api": "csp_Getapp",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": {
-                "host": "http://110.40.59.188:9527",
-                "datakey": "ebad3f1a58b13933",
-                "dataiv": "ebad3f1a58b13933"
-            }
-        },
-        {
-            "key": "金牌影院",
-            "name": "🏅金牌┃影院",
-            "type": 3,
-            "api": "csp_Jinpai",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1
-        },
-        {
-            "key": "木耳",
-            "name": "Ⓜ️木耳┃影视",
-            "type": 3,
-            "api": "csp_Hmer",
-            "searchable": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "timeout": 30
-        },
-        {
-            "key": "荐片",
-            "name": "🔰荐片┃影视",
-            "type": 3,
-            "api": "csp_Jianpian",
-            "playerType": 1,
-            "searchable": 1,
-            "quickSearch": 0
-        },
-        {
-            "key": "星芽短剧",
-            "name": "🌱星芽┃短剧",
-            "type": 3,
-            "api": "csp_Xydj",
-            "searchable": 1,
-            "quickSearch": 0,
-            "changeable": 0
+            "changeable": 1
         },
         {
             "key": "Tgsoukk",
-            "name": "🔍TG┃夸克",
+            "name": "✈️TG┃夸克",
             "type": 3,
             "api": "csp_Tgsoukk",
             "searchable": 1,
@@ -143,7 +68,7 @@
         },
         {
             "key": "Tgsouuc",
-            "name": "🔍TG┃UC",
+            "name": "✈️TG┃UC",
             "type": 3,
             "api": "csp_Tgsouuc",
             "searchable": 1,
@@ -151,7 +76,7 @@
         },
         {
             "key": "Tgsoubd",
-            "name": "🔍TG┃百度",
+            "name": "✈️TG┃百度",
             "type": 3,
             "api": "csp_Tgsoubd",
             "searchable": 1,
@@ -159,7 +84,7 @@
         },
         {
             "key": "Tgsou",
-            "name": "🔍TG┃聚合",
+            "name": "✈️TG┃聚合",
             "type": 3,
             "api": "csp_Tgsou",
             "searchable": 1,
@@ -273,15 +198,7 @@
                 "site": "http://www.labi88.sbs,http://feimaoai.site,https://feimao666.fun,http://feimao888.fun"
             }
         },
-        {
-            "key": "采集",
-            "name": "🌀采集┃线路",
-            "type": 3,
-            "api": "csp_Ptt",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
+        
         {
             "key": "push_agent",
             "name": "⛽手机┃推送",
