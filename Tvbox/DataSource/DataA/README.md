@@ -4,11 +4,11 @@
 
 多仓订阅地址：
 
-https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json
+https://gh.llkk.cc/https://raw.githubusercontent.com/tushen6/Tomorrow/master/lmw.json
 
 单仓订阅地址：
 
-https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/tvbox.json
+https://gh.llkk.cc/https://raw.githubusercontent.com/tushen6/Tomorrow/master/tvbox.json
 
 ## ⚙️GitHub加速站 
 - https://gh-proxy.com/
@@ -40,7 +40,7 @@ https://gh-proxy.com/https://raw.githubusercontent.com/tushen6/Tomorrow/master/t
 - （13）王二小： https://9280.kstore.space/wex.json
 - （14）巧技：http://cdn.qiaoji8.com/tvbox.json 
 - （15）星辰：https://fmbox.cc 
-- （16）拾光：https://4708.kstore.space/omg/hollo.json 
+- （16）林中小屋：https://8815.kstore.vip/tvbox/Ace
 - （17）潇洒：https://9877.kstore.space/AnotherD/api.json
 
 ## 🔰影视软件下载地址
