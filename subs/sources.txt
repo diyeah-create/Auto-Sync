@@ -1,0 +1,55 @@
+# Clash 订阅源列表
+# 固定链接 (Fixed URLs)
+
+https://aoisyvlpa.aiket.jewelry/asdf20252025?b64
+https://gh-proxy.com/https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc0.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc1.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc2.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc3.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc4.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/xiaoji235/airport-free/refs/heads/main/clash/naidounode.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/mgit0001/test_clash/refs/heads/main/heima.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub
+https://gh-proxy.com/https://raw.githubusercontent.com/shahidbhutta/Clash/refs/heads/main/Router
+https://gh-proxy.com/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/anaer/Sub/refs/heads/main/clash.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/free18/v2ray/refs/heads/main/c.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
+https://gh-proxy.com/https://raw.githubusercontent.com/mfbpn/tg_mfbpn_sub/main/trial.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml
+https://gh-proxy.com/https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash
+https://gh-proxy.com/https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+https://sub.reajason.eu.org/clash.yaml
+https://proxypool.link/trojan/sub
+https://proxypool.link/vmess/sub
+https://cdn.jsdelivr.net/gh/itxve/fetch-clash-node/node/merge.yaml
+https://cdn.jsdelivr.net/gh/itxve/fetch-clash-node/node/ClashNode.yaml
+https://cdn.jsdelivr.net/gh/itxve/fetch-clash-node/node/NodeFree.yaml
+https://cdn.jsdelivr.net/gh/itxve/fetch-clash-node/node/NodeShare.yaml
+https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config.yaml
+https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config_extra_US.yaml
+https://proxy.v2gh.com/https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub
+https://clash.crossxx.com/sub/vmess/1761206404
+https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet.txt
+https://sub.azadnetch.workers.dev/AzadNetCH/Clash/main/AzadNet.txt
+https://raw.githubusercontent.com/Alvin9999/pac2/master/clash/1/config.yaml
+https://raw.githubusercontent.com/bingoYB/node_processing/main/dist/all.yaml
+https://raw.githubusercontent.com/igeekshare/GeekshareFreeNode/main/clash/Geekshare.yaml
+https://dingyue.yuns.top/h7iY9FVh8UIv?clash
+
+# 日期型链接 (Date-based URLs - auto-updated)
+# {DATE} 会被自动替换为 YYYYMMDD 格式的日期
+
+https://free.datiya.com/uploads/{DATE}-clash.yaml
+https://v2ray-clash.top/clash-subscription@a/{DATE}-list-1.yaml
+https://v2ray-clash.top/clash-subscription@b/{DATE}-list-2.yaml
+https://v2ray-clash.top/clash-subscription@c/{DATE}-list-3.yaml
