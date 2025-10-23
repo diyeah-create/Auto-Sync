@@ -1,0 +1,77 @@
+name: Update Subscriptions
+
+on:
+  schedule:
+    # 每天北京时间 08:00 运行 (UTC 0:00)
+    - cron: '0 0 * * *'
+  # 允许手动触发
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Generate subscription list
+        run: |
+          echo "🔄 生成订阅源列表..."
+          
+          # 获取当
+          DATE=$(date +%Y%m%d)
+          echo "📅 当前日期: $DATE"
+          
+          # 从 sources.txt 提取 URL，替换日期占位符
+          cat subs/sources.txt | grep -v "^#" | grep -v "^$" | sed "s/{DATE}/$DATE/g" > subs/all.txt
+          
+          echo "✅ 已生成 subs/all.txt"
+          echo "📊 URL 数量: $(wc -l < subs/all.txt)"
+          echo ""
+          echo "前 5 个 URL:"
+          head -5 subs/all.txt
+      
+      - name: Check if files changed
+        id: verify
+        run: |
+          echo "📊 检查文件变化..."
+          if [ -f subs/all.txt ]; then
+            echo "✅ subs/all.txt "
+            echo "📈 行数: $(wc -l < subs/all.txt)"
+            
+            if git diff --quiet subs/all.txt; then
+              echo "⚠️  文件未"
+              echo "changed=false" >> $GITHUB_OUTPUT
+            else
+              echo "✅ 文件已变化"
+              echo "changed=true" >> $GITHUB_OUTPUT
+              git diff --stat subs/all.txt || true
+            fi
+          else
+            echo "❌ subs/all.txt 不存在"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.verify.outputs.changed == 'true'
+        run: |
+          echo "📤 提交和推送变化..."
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add subs/all.txt
+          git commit -m "🔄 Update subscriptions - $(date +'%Y-%m-%d %H:%M:%S %Z')"
+          git push
+          echo "✅ 已推送到 GitHub"
+      
+      - name: No changes
+        if: steps.verify.outputs.changed == 'false'
+        run: |
+          echo "✅ 订阅源未变化，无需更新"
