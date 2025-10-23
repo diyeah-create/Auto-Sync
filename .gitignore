@@ -1,1 +1,19 @@
+# 忽略大文件目录
+Tvbox/
+clash/
 
+# 忽略临时文件
+*.tmp
+*.log
+.DS_Store
+
+# 忽略 node_modules 和其他依赖
+node_modules/
+.venv/
+venv/
+
+# 忽略编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
