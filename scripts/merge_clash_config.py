@@ -173,24 +173,27 @@ def convert_with_subconverter(sources: List[str], subconverter_url: str, config:
     # 合并多个订阅源
     urls = '|'.join(sources)
     
-    # 手动编码 URL（只编码订阅链接，避免双重编码）
-    encoded_urls = quote(urls, safe='')
-    config_url = quote(f'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/{config}.ini', safe=':/')
+    # 构建参数（不编码，直接传递给 subconverter）
+    config_url = f'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/{config}.ini'
     
-    # 直接拼接完整 URL
-    full_url = (
-        f"{subconverter_url}/sub?"
-        f"target=clash&"
-        f"url={encoded_urls}&"
-        f"config={config_url}&"
-        f"emoji=true&"
-        f"list=false&"
-        f"udp=true&"
-        f"tfo=true&"
-        f"scv=true&"
-        f"fdn=true&"
-        f"sort=false"
-    )
+    # 使用 params 但设置 safe 参数避免过度编码
+    from urllib.parse import urlencode
+    params = {
+        'target': 'clash',
+        'url': urls,
+        'config': config_url,
+        'emoji': 'true',
+        'list': 'false',
+        'udp': 'true',
+        'tfo': 'true',
+        'scv': 'true',
+        'fdn': 'true',
+        'sort': 'false'
+    }
+    
+    # 手动构建查询字符串，保留特殊字符
+    query_string = urlencode(params, safe=':/')
+    full_url = f"{subconverter_url}/sub?{query_string}"
     
     print(f"正在调用 subconverter: {subconverter_url}")
     print(f"配置规则: {config}")
