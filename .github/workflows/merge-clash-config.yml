@@ -69,7 +69,7 @@ jobs:
           else
             git commit -m "chore: merge clash configurations with ACL4SSR rules"
             
-            # 拉取远程更改并推送
-            git pull --rebase origin main
+            # 拉取远程更改并推送（使用 merge 而不是 rebase 避免提交被跳过）
+            git pull origin main --no-rebase || true
             git push
           fi
