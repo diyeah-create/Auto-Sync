@@ -233,8 +233,8 @@ def main():
         'https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml'
     ]
     
-    # subconverter 服务地址（优先使用环境变量，默认使用本地服务）
-    subconverter_url = os.getenv('SUBCONVERTER_URL', 'http://127.0.0.1:25500')
+    # subconverter 服务地址（优先使用环境变量，默认使用公共 API）
+    subconverter_url = os.getenv('SUBCONVERTER_URL', 'https://sub.bestool.cc')
     
     print("=" * 60)
     print("Clash 配置转换工具 (subconverter + ACL4SSR)")
