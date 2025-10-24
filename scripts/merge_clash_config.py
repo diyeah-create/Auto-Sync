@@ -202,8 +202,13 @@ def convert_with_subconverter(sources: List[str], subconverter_url: str, config:
         response = requests.get(full_url, timeout=60)
         response.raise_for_status()
         
-        # 解析返回的 YAML
-        config_data = yaml.safe_load(response.text)
+        # 解析返回的 YAML（处理 !<str> 等自定义标签）
+        # 添加自定义构造器处理 !<str> 标签
+        def str_constructor(loader, node):
+            return loader.construct_scalar(node)
+        
+        yaml.add_constructor('!<str>', str_constructor, Loader=yaml.FullLoader)
+        config_data = yaml.load(response.text, Loader=yaml.FullLoader)
         
         if not config_data:
             print("错误: subconverter 返回空配置")
