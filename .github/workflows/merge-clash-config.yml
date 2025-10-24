@@ -60,8 +60,8 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          # 强制添加 clash 和 templates 目录，避免被 .gitignore 忽略
-          git add -f clash/ templates/
+          # 强制添加 clash/GG 和 templates 目录，避免被 .gitignore 忽略
+          git add -f clash/GG/ templates/
 
           # 提交更改
           if git diff --staged --quiet; then
