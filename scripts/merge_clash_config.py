@@ -171,7 +171,7 @@ def create_openclash_config(proxies: List[Dict[str, Any]], template_path: str) -
 def convert_with_subconverter(sources: List[str], subconverter_url: str, config: str = 'ACL4SSR_Online_Full') -> Dict[str, Any]:
     """使用 subconverter 转换订阅"""
     # 合并多个订阅源
-    urls = '|'.join([quote(url, safe='') for url in sources])
+    urls = '|'.join(sources)
     
     # 构建 subconverter API 请求
     params = {
