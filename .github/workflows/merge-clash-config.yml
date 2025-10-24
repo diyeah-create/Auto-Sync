@@ -67,7 +67,9 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: merge clash configurations with ACL4SSR rules"
+            # 使用时间戳确保每次提交信息唯一
+            TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+            git commit -m "chore: update clash config - $TIMESTAMP"
             
             # 先拉取远程更改
             git fetch origin main
@@ -75,6 +77,6 @@ jobs:
             # 如果有冲突，使用本地版本
             git merge origin/main --no-edit --strategy-option=ours || true
             
-            # 强制推送
+            # 推送
             git push origin main
           fi
