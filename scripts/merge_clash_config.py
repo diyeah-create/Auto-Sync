@@ -172,14 +172,16 @@ def get_ip_location(ip: str) -> tuple:
     """通过 IP 地址查询地理位置"""
     try:
         # 使用免费的 ip-api.com 服务
-        response = requests.get(f'http://ip-api.com/json/{ip}?fields=status,countryCode', timeout=3)
+        response = requests.get(f'http://ip-api.com/json/{ip}?fields=status,countryCode,country', timeout=3)
         if response.status_code == 200:
             data = response.json()
             if data.get('status') == 'success':
                 country_code = data.get('countryCode', 'XX')
+                country_name = data.get('country', 'Unknown')
+                print(f"  IP {ip} -> {country_code} ({country_name})")
                 return country_code, None
-    except:
-        pass
+    except Exception as e:
+        print(f"  IP {ip} 查询失败: {e}")
     return None, None
 
 
@@ -241,6 +243,7 @@ def clean_proxy_names(config: Dict[str, Any]) -> None:
     
     # 记录每个地区的计数
     region_counters = {}
+    ip_query_count = 0  # 记录通过 IP 查询识别的节点数
     
     for proxy in proxies:
         original_name = proxy.get('name', '')
@@ -298,6 +301,7 @@ def clean_proxy_names(config: Dict[str, Any]) -> None:
                 if country_code:
                     region = country_code
                     region_emoji = code_to_emoji.get(country_code, '❓')
+                    ip_query_count += 1
             except ValueError:
                 # 不是 IP 地址，跳过
                 pass
@@ -326,6 +330,8 @@ def clean_proxy_names(config: Dict[str, Any]) -> None:
         proxy['name'] = new_name
     
     print(f"✓ 节点名称规范化完成，共 {len(proxies)} 个节点")
+    if ip_query_count > 0:
+        print(f"  其中 {ip_query_count} 个节点通过 IP 地理位置查询识别")
 
 
 def convert_with_subconverter(sources: List[str], subconverter_url: str, config: str = 'ACL4SSR_Online_Full') -> Dict[str, Any]:
