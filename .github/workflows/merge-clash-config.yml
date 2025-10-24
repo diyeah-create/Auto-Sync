@@ -1,0 +1,73 @@
+name: 'Merge Clash Config'
+
+on:
+  schedule:
+    # 每天北京时间 08:00 运行（UTC 0:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+env:
+  TZ: Asia/Shanghai  # 全局时区设置为北京时间
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Display current Beijing time
+        run: |
+          echo "当前北京时间：$(date '+%Y-%m-%d %H:%M:%S')"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Sync ACL4SSR template
+        run: |
+          # 创建模板目录
+          mkdir -p templates
+          
+          # 下载 ACL4SSR 模板
+          echo "正在下载 ACL4SSR 模板..."
+          curl -fsSL https://raw.githubusercontent.com/beck-8/override-hub/refs/heads/main/yaml/ACL4SSR_Online_Full.yaml -o templates/ACL4SSR_Online_Full.yaml
+          
+          if [ -f templates/ACL4SSR_Online_Full.yaml ]; then
+            echo "✓ ACL4SSR 模板同步完成"
+            ls -lh templates/ACL4SSR_Online_Full.yaml
+          else
+            echo "✗ ACL4SSR 模板下载失败"
+            exit 1
+          fi
+
+      - name: Merge Clash configurations
+        run: |
+          python scripts/merge_clash_config.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # 强制添加 clash 和 templates 目录，避免被 .gitignore 忽略
+          git add -f clash/ templates/
+
+          # 提交更改
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: merge clash configurations with ACL4SSR rules"
+            git push
+          fi
