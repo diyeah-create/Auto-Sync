@@ -168,6 +168,166 @@ def create_openclash_config(proxies: List[Dict[str, Any]], template_path: str) -
     return template
 
 
+def get_ip_location(ip: str) -> tuple:
+    """通过 IP 地址查询地理位置"""
+    try:
+        # 使用免费的 ip-api.com 服务
+        response = requests.get(f'http://ip-api.com/json/{ip}?fields=status,countryCode', timeout=3)
+        if response.status_code == 200:
+            data = response.json()
+            if data.get('status') == 'success':
+                country_code = data.get('countryCode', 'XX')
+                return country_code, None
+    except:
+        pass
+    return None, None
+
+
+def clean_proxy_names(config: Dict[str, Any]) -> None:
+    """清理并规范化节点名称（支持 IP 地理位置查询）"""
+    import re
+    
+    proxies = config.get('proxies', [])
+    
+    # 地区映射（基于 ISO 3166-1 国家代码标准）
+    # 参考: https://github.com/unicode-org/cldr
+    region_map = {
+        # 亚洲
+        '🇭🇰': 'HK', '香港': 'HK', 'Hong Kong': 'HK', 'HK': 'HK',
+        '🇨🇳': 'TW', '台湾': 'TW', 'Taiwan': 'TW', 'TW': 'TW',
+        '🇸🇬': 'SG', '新加坡': 'SG', 'Singapore': 'SG', 'SG': 'SG',
+        '🇯🇵': 'JP', '日本': 'JP', 'Japan': 'JP', 'JP': 'JP', '东京': 'JP', '大阪': 'JP',
+        '🇰🇷': 'KR', '韩国': 'KR', 'Korea': 'KR', 'KR': 'KR', '首尔': 'KR',
+        '🇵🇭': 'PH', '菲律宾': 'PH', 'Philippines': 'PH',
+        '🇮🇳': 'IN', '印度': 'IN', 'India': 'IN',
+        '🇻🇳': 'VN', '越南': 'VN', 'Vietnam': 'VN',
+        '🇹🇭': 'TH', '泰国': 'TH', 'Thailand': 'TH',
+        '🇲🇾': 'MY', '马来西亚': 'MY', 'Malaysia': 'MY',
+        '🇮🇩': 'ID', '印度尼西亚': 'ID', 'Indonesia': 'ID',
+        # 北美
+        '🇺🇸': 'US', '美国': 'US', 'United States': 'US', 'US': 'US', 'America': 'US',
+        '🇨🇦': 'CA', '加拿大': 'CA', 'Canada': 'CA',
+        # 欧洲
+        '🇬🇧': 'GB', '英国': 'GB', 'United Kingdom': 'GB', 'UK': 'GB',
+        '🇩🇪': 'DE', '德国': 'DE', 'Germany': 'DE',
+        '🇫🇷': 'FR', '法国': 'FR', 'France': 'FR',
+        '🇳🇱': 'NL', '荷兰': 'NL', 'Netherlands': 'NL',
+        '🇵🇱': 'PL', '波兰': 'PL', 'Poland': 'PL',
+        '🇷🇺': 'RU', '俄罗斯': 'RU', 'Russia': 'RU',
+        '🇮🇹': 'IT', '意大利': 'IT', 'Italy': 'IT',
+        '🇪🇸': 'ES', '西班牙': 'ES', 'Spain': 'ES',
+        '🇵🇹': 'PT', '葡萄牙': 'PT', 'Portugal': 'PT',
+        '🇹🇷': 'TR', '土耳其': 'TR', 'Turkey': 'TR',
+        # 大洋洲
+        '🇦🇺': 'AU', '澳大利亚': 'AU', 'Australia': 'AU',
+        '🇳🇿': 'NZ', '新西兰': 'NZ', 'New Zealand': 'NZ',
+        # 南美
+        '🇧🇷': 'BR', '巴西': 'BR', 'Brazil': 'BR',
+        '🇦🇷': 'AR', '阿根廷': 'AR', 'Argentina': 'AR',
+        # 中东
+        '🇦🇪': 'AE', '阿联酋': 'AE', 'UAE': 'AE',
+        '🇸🇦': 'SA', '沙特': 'SA', 'Saudi': 'SA',
+    }
+    
+    # 国家代码到 emoji 的映射
+    code_to_emoji = {
+        'HK': '🇭🇰', 'TW': '🇨🇳', 'SG': '🇸🇬', 'JP': '🇯🇵', 'US': '🇺🇸',
+        'KR': '🇰🇷', 'GB': '🇬🇧', 'DE': '🇩🇪', 'FR': '🇫🇷', 'CA': '🇨🇦',
+        'AU': '🇦🇺', 'NL': '🇳🇱', 'PL': '🇵🇱', 'RU': '🇷🇺', 'IT': '🇮🇹',
+        'ES': '🇪🇸', 'PT': '🇵🇹', 'TR': '🇹🇷', 'PH': '🇵🇭', 'IN': '🇮🇳',
+        'VN': '🇻🇳', 'TH': '🇹🇭', 'MY': '🇲🇾', 'ID': '🇮🇩', 'BR': '🇧🇷',
+        'AR': '🇦🇷', 'AE': '🇦🇪', 'SA': '🇸🇦', 'NZ': '🇳🇿',
+    }
+    
+    # 记录每个地区的计数
+    region_counters = {}
+    
+    for proxy in proxies:
+        original_name = proxy.get('name', '')
+        server = proxy.get('server', 'unknown')
+        port = proxy.get('port', 0)
+        proxy_type = proxy.get('type', 'unknown').upper()
+        
+        # 提取地区信息（优先从原名称，其次从服务器地址）
+        region = None
+        region_emoji = None
+        
+        # 从原名称中提取
+        for emoji, code in region_map.items():
+            if emoji in original_name or code in original_name.upper():
+                region = code
+                # 获取对应的 emoji
+                for e, c in region_map.items():
+                    if c == code and len(e) == 2:  # emoji 长度为2
+                        region_emoji = e
+                        break
+                break
+        
+        # 如果没有找到，尝试从服务器域名推断
+        if not region:
+            server_lower = server.lower()
+            if 'hk' in server_lower or 'hongkong' in server_lower:
+                region, region_emoji = 'HK', '🇭🇰'
+            elif 'tw' in server_lower or 'taiwan' in server_lower:
+                region, region_emoji = 'TW', '🇨🇳'
+            elif 'sg' in server_lower or 'singapore' in server_lower:
+                region, region_emoji = 'SG', '🇸🇬'
+            elif 'jp' in server_lower or 'japan' in server_lower or 'tokyo' in server_lower:
+                region, region_emoji = 'JP', '🇯🇵'
+            elif 'us' in server_lower or 'america' in server_lower:
+                region, region_emoji = 'US', '🇺🇸'
+            elif 'kr' in server_lower or 'korea' in server_lower:
+                region, region_emoji = 'KR', '🇰🇷'
+            elif 'uk' in server_lower or 'london' in server_lower:
+                region, region_emoji = 'GB', '🇬🇧'
+            elif 'de' in server_lower or 'germany' in server_lower:
+                region, region_emoji = 'DE', '🇩🇪'
+            elif 'ca' in server_lower or 'canada' in server_lower:
+                region, region_emoji = 'CA', '🇨🇦'
+            elif 'au' in server_lower or 'australia' in server_lower:
+                region, region_emoji = 'AU', '🇦🇺'
+        
+        # 如果还是没有找到，尝试通过 IP 查询（仅对 IP 地址）
+        if not region:
+            import ipaddress
+            try:
+                # 检查是否为 IP 地址
+                ipaddress.ip_address(server)
+                # 是 IP 地址，进行查询
+                country_code, _ = get_ip_location(server)
+                if country_code:
+                    region = country_code
+                    region_emoji = code_to_emoji.get(country_code, '❓')
+            except ValueError:
+                # 不是 IP 地址，跳过
+                pass
+        
+        # 如果还是没有找到，使用默认
+        if not region:
+            region = 'XX'
+            region_emoji = '❓'
+        
+        # 提取服务商名称（从服务器地址）
+        provider = 'Node'
+        if '.' in server:
+            parts = server.split('.')
+            if len(parts) >= 2:
+                # 取域名的主要部分
+                provider = parts[-2].capitalize()[:15]
+        
+        # 生成计数器
+        region_key = f"{region}-{provider}"
+        region_counters[region_key] = region_counters.get(region_key, 0) + 1
+        counter = region_counters[region_key]
+        
+        # 生成规范化名称：🇭🇰 HK-Provider-01
+        new_name = f"{region_emoji} {region}-{provider}-{counter:02d}"
+        
+        proxy['name'] = new_name
+    
+    print(f"✓ 节点名称规范化完成，共 {len(proxies)} 个节点")
+
+
 def convert_with_subconverter(sources: List[str], subconverter_url: str, config: str = 'ACL4SSR_Online_Full') -> Dict[str, Any]:
     """使用 subconverter 转换订阅"""
     # 合并多个订阅源
@@ -224,6 +384,10 @@ def convert_with_subconverter(sources: List[str], subconverter_url: str, config:
         print(f"  节点数量: {proxy_count}")
         print(f"  代理组数量: {group_count}")
         print(f"  规则数量: {rule_count}")
+        
+        # 清理节点名称
+        print(f"\n正在清理节点名称...")
+        clean_proxy_names(config_data)
         
         return config_data
         
