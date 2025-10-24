@@ -34,6 +34,25 @@ jobs:
         run: |
           pip install requests PyYAML
 
+      - name: Setup subconverter
+        run: |
+          # 下载 subconverter
+          wget https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz
+          tar -xzf subconverter_linux64.tar.gz
+          
+          # 启动 subconverter 服务（后台运行）
+          cd subconverter
+          chmod +x subconverter
+          ./subconverter &
+          
+          # 等待服务启动
+          sleep 5
+          
+          # 测试服务是否正常
+          curl -f http://127.0.0.1:25500/version || exit 1
+          
+          echo "✓ subconverter 服务已启动"
+
       - name: Sync ACL4SSR template
         run: |
           # 创建模板目录
