@@ -59,3 +59,4 @@ jobs:
           else
             git commit -m "chore: sync clash repository and update references"
             git push
+          fi
