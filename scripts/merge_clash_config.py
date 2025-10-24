@@ -173,25 +173,30 @@ def convert_with_subconverter(sources: List[str], subconverter_url: str, config:
     # 合并多个订阅源
     urls = '|'.join(sources)
     
-    # 构建 subconverter API 请求
-    params = {
-        'target': 'clash',
-        'url': urls,
-        'config': f'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/{config}.ini',
-        'emoji': 'true',
-        'list': 'false',
-        'udp': 'true',
-        'tfo': 'true',
-        'scv': 'true',
-        'fdn': 'true',
-        'sort': 'false'
-    }
+    # 手动编码 URL（只编码订阅链接，避免双重编码）
+    encoded_urls = quote(urls, safe='')
+    config_url = quote(f'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/{config}.ini', safe=':/')
+    
+    # 直接拼接完整 URL
+    full_url = (
+        f"{subconverter_url}/sub?"
+        f"target=clash&"
+        f"url={encoded_urls}&"
+        f"config={config_url}&"
+        f"emoji=true&"
+        f"list=false&"
+        f"udp=true&"
+        f"tfo=true&"
+        f"scv=true&"
+        f"fdn=true&"
+        f"sort=false"
+    )
     
     print(f"正在调用 subconverter: {subconverter_url}")
     print(f"配置规则: {config}")
     
     try:
-        response = requests.get(f"{subconverter_url}/sub", params=params, timeout=60)
+        response = requests.get(full_url, timeout=60)
         response.raise_for_status()
         
         # 解析返回的 YAML
