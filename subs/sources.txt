@@ -1,7 +1,6 @@
 # Clash 订阅源列表
 # 固定链接 (Fixed URLs)
 
-https://aoisyvlpa.aiket.jewelry/asdf20252025?b64
 https://gh-proxy.com/https://raw.githubusercontent.com/firefoxmmx2/v2rayshare_subcription/main/subscription/clash_sub.yaml
 https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc0.yaml
 https://gh-proxy.com/https://raw.githubusercontent.com/Q3dlaXpoaQ/V2rayN_Clash_Node_Getter/refs/heads/main/APIs/sc1.yaml
@@ -44,7 +43,6 @@ https://sub.azadnetch.workers.dev/AzadNetCH/Clash/main/AzadNet.txt
 https://raw.githubusercontent.com/Alvin9999/pac2/master/clash/1/config.yaml
 https://raw.githubusercontent.com/bingoYB/node_processing/main/dist/all.yaml
 https://raw.githubusercontent.com/igeekshare/GeekshareFreeNode/main/clash/Geekshare.yaml
-https://dingyue.yuns.top/h7iY9FVh8UIv?clash
 
 # 日期型链接 (Date-based URLs - auto-updated)
 # {DATE} 会被自动替换为 YYYYMMDD 格式的日期
