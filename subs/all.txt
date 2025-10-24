@@ -42,7 +42,7 @@ https://raw.githubusercontent.com/Alvin9999/pac2/master/clash/1/config.yaml
 https://raw.githubusercontent.com/bingoYB/node_processing/main/dist/all.yaml
 https://raw.githubusercontent.com/igeekshare/GeekshareFreeNode/main/clash/Geekshare.yaml
 https://dingyue.yuns.top/h7iY9FVh8UIv?clash
-https://free.datiya.com/uploads/20251023-clash.yaml
-https://v2ray-clash.top/clash-subscription@a/20251023-list-1.yaml
-https://v2ray-clash.top/clash-subscription@b/20251023-list-2.yaml
-https://v2ray-clash.top/clash-subscription@c/20251023-list-3.yaml
+https://free.datiya.com/uploads/20251024-clash.yaml
+https://v2ray-clash.top/clash-subscription@a/20251024-list-1.yaml
+https://v2ray-clash.top/clash-subscription@b/20251024-list-2.yaml
+https://v2ray-clash.top/clash-subscription@c/20251024-list-3.yaml
