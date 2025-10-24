@@ -155,9 +155,9 @@ def main():
         return
     
     # 保存到文件
-    output_dir = 'clash'
+    output_dir = 'clash/GG'
     os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, 'config.yaml')
+    output_file = os.path.join(output_dir, 'clash_1.yaml')
     
     print(f"\n正在保存配置到: {output_file}")
     with open(output_file, 'w', encoding='utf-8') as f:
