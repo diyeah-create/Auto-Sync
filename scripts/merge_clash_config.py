@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-合并多个 Clash 订阅源并生成符合 OpenClash 标准的配置文件（ACL4SSR 规则）
-使用本地同步的 ACL4SSR 模板，动态插入合并后的节点
+使用 subconverter 处理 Clash 订阅源并生成配置文件
 """
 import os
 import yaml
 import requests
 from typing import Dict, List, Any
+from urllib.parse import quote
 
 
 def load_yaml_from_url(url: str) -> Dict[str, Any]:
@@ -168,6 +168,55 @@ def create_openclash_config(proxies: List[Dict[str, Any]], template_path: str) -
     return template
 
 
+def convert_with_subconverter(sources: List[str], subconverter_url: str, config: str = 'ACL4SSR_Online_Full') -> Dict[str, Any]:
+    """使用 subconverter 转换订阅"""
+    # 合并多个订阅源
+    urls = '|'.join([quote(url, safe='') for url in sources])
+    
+    # 构建 subconverter API 请求
+    params = {
+        'target': 'clash',
+        'url': urls,
+        'config': f'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/{config}.ini',
+        'emoji': 'true',
+        'list': 'false',
+        'udp': 'true',
+        'tfo': 'true',
+        'scv': 'true',
+        'fdn': 'true',
+        'sort': 'false'
+    }
+    
+    print(f"正在调用 subconverter: {subconverter_url}")
+    print(f"配置规则: {config}")
+    
+    try:
+        response = requests.get(f"{subconverter_url}/sub", params=params, timeout=60)
+        response.raise_for_status()
+        
+        # 解析返回的 YAML
+        config_data = yaml.safe_load(response.text)
+        
+        if not config_data:
+            print("错误: subconverter 返回空配置")
+            return {}
+        
+        proxy_count = len(config_data.get('proxies', []))
+        group_count = len(config_data.get('proxy-groups', []))
+        rule_count = len(config_data.get('rules', []))
+        
+        print(f"✓ 转换成功")
+        print(f"  节点数量: {proxy_count}")
+        print(f"  代理组数量: {group_count}")
+        print(f"  规则数量: {rule_count}")
+        
+        return config_data
+        
+    except Exception as e:
+        print(f"✗ subconverter 转换失败: {e}")
+        return {}
+
+
 def main():
     """主函数"""
     # 订阅源列表
@@ -176,49 +225,25 @@ def main():
         'https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml'
     ]
     
-    # ACL4SSR 模板路径
-    template_path = 'templates/ACL4SSR_Online_Full.yaml'
+    # subconverter 服务地址（优先使用环境变量，默认使用本地服务）
+    subconverter_url = os.getenv('SUBCONVERTER_URL', 'http://127.0.0.1:25500')
     
     print("=" * 60)
-    print("Clash 配置合并工具 (ACL4SSR 规则)")
+    print("Clash 配置转换工具 (subconverter + ACL4SSR)")
     print("=" * 60)
     print()
     
-    # 检查模板文件是否存在
-    if not os.path.exists(template_path):
-        print(f"错误: ACL4SSR 模板文件不存在: {template_path}")
-        print("请先运行工作流同步模板文件")
-        return
+    print(f"订阅源数量: {len(sources)}")
+    for i, url in enumerate(sources, 1):
+        print(f"  {i}. {url}")
+    print()
     
-    print("开始拉取订阅源...")
-    configs = []
-    for url in sources:
-        print(f"正在拉取: {url}")
-        config = load_yaml_from_url(url)
-        if config:
-            proxy_count = len(config.get('proxies', []))
-            print(f"  ✓ 成功，获取 {proxy_count} 个节点")
-            configs.append(config)
-        else:
-            print(f"  ✗ 失败")
+    # 使用 subconverter 转换
+    print("正在使用 subconverter 处理订阅...")
+    config_data = convert_with_subconverter(sources, subconverter_url)
     
-    if not configs:
-        print("\n错误: 没有成功加载任何配置")
-        return
-    
-    print(f"\n成功加载 {len(configs)} 个配置源")
-    
-    # 合并代理节点
-    print("\n正在合并代理节点...")
-    merged_proxies = merge_proxies(configs)
-    print(f"合并后共 {len(merged_proxies)} 个节点（已去重）")
-    
-    # 生成 OpenClash 配置
-    print("\n正在生成 OpenClash 配置...")
-    openclash_config = create_openclash_config(merged_proxies, template_path)
-    
-    if not openclash_config:
-        print("\n错误: 配置生成失败")
+    if not config_data:
+        print("\n错误: 配置转换失败")
         return
     
     # 保存到文件
@@ -228,13 +253,13 @@ def main():
     
     print(f"\n正在保存配置到: {output_file}")
     with open(output_file, 'w', encoding='utf-8') as f:
-        yaml.dump(openclash_config, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+        yaml.dump(config_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
     
     print("\n" + "=" * 60)
     print("✓ 配置生成完成!")
     print("=" * 60)
     print(f"\n配置文件: {output_file}")
-    print(f"节点数量: {len(merged_proxies)}")
+    print(f"节点数量: {len(config_data.get('proxies', []))}")
 
 
 if __name__ == '__main__':
