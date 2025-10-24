@@ -2,16 +2,18 @@ name: 'Sync Clash Repository'
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天午夜运行
-  workflow_dispatch:      # 允许手动触发
+    # 每天北京时间 08:00 运行（UTC 0:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 允许手动触发
 
-permissions:
-  contents: write
+env:
+  TZ: Asia/Shanghai  # 全局时区设置为北京时间
 
 jobs:
-  sync:
+  update:
     runs-on: ubuntu-latest
-    
+    env:
+      TZ: Asia/Shanghai
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,12 +21,16 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Display current Beijing time
+        run: |
+          echo "当前北京时间：$(date '+%Y-%m-%d %H:%M:%S')"
+
       - name: Sync Clash repository
         run: |
           # 创建临时目录
           TEMP_DIR=$(mktemp -d)
           
-          # 克隆到临时目录
+          # 克隆 Clash 仓库到临时目录
           git clone https://github.com/liandu2024/clash.git "$TEMP_DIR"
           
           # 确保目标目录存在
@@ -38,14 +44,14 @@ jobs:
           
           # 替换文件中的引用路径
           find clash -type f -exec sed -i 's|liandu2024/clash/refs/heads/main|walke2019/Auto-Sync/refs/heads/main/clash|g' {} +
-          
+
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # 添加 clash 目录的更改
-          git add clash/
+          # 强制添加 clash 目录，避免被 .gitignore 忽略
+          git add -f clash/
           
           # 如果有更改则提交
           if git diff --staged --quiet; then
@@ -53,4 +59,3 @@ jobs:
           else
             git commit -m "chore: sync clash repository and update references"
             git push
-          fi
