@@ -30,19 +30,86 @@ def load_yaml_from_file(file_path: str) -> Dict[str, Any]:
         return {}
 
 
-def merge_proxies(configs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """合并多个配置中的代理节点"""
-    all_proxies = []
-    seen_names = set()
+def clean_proxy_name(proxy: Dict[str, Any], index: int) -> str:
+    """清理并规范化节点名称"""
+    import re
     
+    # 提取基本信息
+    server = proxy.get('server', 'unknown')
+    port = proxy.get('port', 0)
+    proxy_type = proxy.get('type', 'unknown').upper()
+    
+    # 尝试从原名称中提取地区信息
+    original_name = proxy.get('name', '')
+    
+    # 地区映射
+    region_map = {
+        '🇭🇰': 'HK', '香港': 'HK', 'HK': 'HK', 'Hong Kong': 'HK',
+        '🇨🇳': 'TW', '台湾': 'TW', 'TW': 'TW', 'Taiwan': 'TW',
+        '🇸🇬': 'SG', '新加坡': 'SG', 'SG': 'SG', 'Singapore': 'SG',
+        '🇯🇵': 'JP', '日本': 'JP', 'JP': 'JP', 'Japan': 'JP',
+        '🇺🇸': 'US', '美国': 'US', 'US': 'US', 'United States': 'US',
+        '🇰🇷': 'KR', '韩国': 'KR', 'KR': 'KR', 'Korea': 'KR',
+    }
+    
+    # 尝试识别地区
+    region = 'XX'
+    for key, value in region_map.items():
+        if key in original_name:
+            region = value
+            break
+    
+    # 如果没有识别到地区，尝试从服务器地址推断
+    if region == 'XX':
+        if any(x in server.lower() for x in ['hk', 'hong']):
+            region = 'HK'
+        elif any(x in server.lower() for x in ['tw', 'taiwan']):
+            region = 'TW'
+        elif any(x in server.lower() for x in ['sg', 'singapore']):
+            region = 'SG'
+        elif any(x in server.lower() for x in ['jp', 'japan', 'tokyo']):
+            region = 'JP'
+        elif any(x in server.lower() for x in ['us', 'america']):
+            region = 'US'
+        elif any(x in server.lower() for x in ['kr', 'korea']):
+            region = 'KR'
+    
+    # 简化服务器地址（只保留域名或IP的前几位）
+    if '.' in server:
+        parts = server.split('.')
+        if len(parts) >= 2:
+            server_short = f"{parts[0][:8]}...{parts[-1]}"
+        else:
+            server_short = server[:15]
+    else:
+        server_short = server[:15]
+    
+    # 生成规范化名称
+    clean_name = f"[{region}] {proxy_type} {server_short}:{port}"
+    
+    return clean_name
+
+
+def merge_proxies(configs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """合并多个配置中的代理节点并清理名称"""
+    all_proxies = []
+    seen_servers = set()
+    
+    proxy_index = 1
     for config in configs:
         proxies = config.get('proxies', [])
         for proxy in proxies:
-            name = proxy.get('name', '')
-            # 去重：如果节点名已存在，跳过
-            if name and name not in seen_names:
+            server = proxy.get('server', '')
+            port = proxy.get('port', 0)
+            server_key = f"{server}:{port}"
+            
+            # 去重：基于服务器地址和端口
+            if server and server_key not in seen_servers:
+                # 清理节点名称
+                proxy['name'] = clean_proxy_name(proxy, proxy_index)
                 all_proxies.append(proxy)
-                seen_names.add(name)
+                seen_servers.add(server_key)
+                proxy_index += 1
     
     return all_proxies
 
