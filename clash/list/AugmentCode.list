@@ -1,0 +1,14 @@
+# AugmentCode域名分流规则
+# 配置为美国自动、日本自动
+
+# AugmentCode主域名
+DOMAIN-SUFFIX,augmentcode.com
+DOMAIN-SUFFIX,www.augmentcode.com
+
+# AugmentCode可能的子域名
+DOMAIN-SUFFIX,api.augmentcode.com
+DOMAIN-SUFFIX,app.augmentcode.com
+DOMAIN-SUFFIX,cdn.augmentcode.com
+DOMAIN-SUFFIX,static.augmentcode.com
+DOMAIN-SUFFIX,assets.augmentcode.com
+DOMAIN-SUFFIX,status.augmentcode.com
