@@ -1,0 +1,44 @@
+# Docker镜像源分流规则
+
+# Docker Hub官方镜像源
+DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,registry-1.docker.io
+DOMAIN-SUFFIX,index.docker.io
+DOMAIN-SUFFIX,auth.docker.io
+DOMAIN-SUFFIX,registry.docker.io
+DOMAIN-SUFFIX,production.cloudflare.docker.com
+
+# Google Container Registry
+DOMAIN-SUFFIX,gcr.io
+DOMAIN-SUFFIX,k8s.gcr.io
+DOMAIN-SUFFIX,eu.gcr.io
+DOMAIN-SUFFIX,us.gcr.io
+DOMAIN-SUFFIX,asia.gcr.io
+
+# Google Artifact Registry
+DOMAIN-SUFFIX,pkg.dev
+
+# Quay.io
+DOMAIN-SUFFIX,quay.io
+
+# GitHub Container Registry
+DOMAIN-SUFFIX,ghcr.io
+
+# Amazon ECR
+DOMAIN-SUFFIX,amazonaws.com
+DOMAIN-KEYWORD,ecr
+
+# Microsoft Container Registry
+DOMAIN-SUFFIX,mcr.microsoft.com
+DOMAIN-SUFFIX,azurecr.io
+
+# Red Hat Registry
+DOMAIN-SUFFIX,registry.redhat.io
+DOMAIN-SUFFIX,registry.access.redhat.com
+
+# NVIDIA Container Registry
+DOMAIN-SUFFIX,nvcr.io
+
+# Docker官方CDN
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,dockerhub.com
