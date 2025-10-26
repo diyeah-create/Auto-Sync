@@ -9,6 +9,10 @@ on:
 env:
   TZ: Asia/Shanghai  # 全局时区设置为北京时间
 
+concurrency:
+  group: clash-sync-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
