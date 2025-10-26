@@ -9,6 +9,10 @@ on:
 env:
   TZ: Asia/Shanghai  # 全局时区设置为北京时间
 
+concurrency:
+  group: clash-sync-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   merge:
     runs-on: ubuntu-latest
@@ -61,7 +65,17 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
           # 强制添加 clash/GG 和 templates 目录，避免被 .gitignore 忽略
-          git add -f clash/GG/ templates/
+          if [ -d clash/GG ]; then
+            git add -f clash/GG/
+          else
+            echo "clash/GG 目录不存在，跳过添加"
+          fi
+
+          if [ -d templates ]; then
+            git add -f templates/
+          else
+            echo "templates 目录不存在，跳过添加"
+          fi
 
           # 提交更改
           if git diff --staged --quiet; then
