@@ -38,27 +38,23 @@ jobs:
         run: |
           pip install requests PyYAML
 
-      - name: Sync Clash repository
+      - name: Download Clash subscriptions
         run: |
-          # 创建临时目录
-          TEMP_DIR=$(mktemp -d)
-
-          # 克隆 Clash 仓库到临时目录
-          git clone https://github.com/liandu2024/clash.git "$TEMP_DIR"
-
-          # 确保目标目录存在
+          # 创建 clash 目录
           mkdir -p clash
 
-          # 复制文件，排除 .git 目录
-          rsync -av --delete --exclude='.git' "$TEMP_DIR/" clash/
+          # 下载订阅源（YAML 格式）
+          echo "正在下载订阅源..."
 
-          # 清理临时目录
-          rm -rf "$TEMP_DIR"
+          # 订阅源 1
+          curl -fsSL "https://raw.githubusercontent.com/go4sharing/sub/main/worker.yaml" -o clash/sub1.yaml || echo "订阅源1下载失败"
 
-          # 替换文件中的引用路径
-          find clash -type f -exec sed -i 's|liandu2024/clash/refs/heads/main|walke2019/Auto-Sync/refs/heads/main/clash|g' {} +
+          # 订阅源 2
+          curl -fsSL "https://raw.githubusercontent.com/Ruk1ng001/freeSub/main/clash.yaml" -o clash/sub2.yaml || echo "订阅源2下载失败"
 
-          echo "✓ Clash 订阅源同步完成"
+          # 显示下载的文件
+          echo "✓ 订阅源下载完成"
+          ls -lh clash/*.yaml 2>/dev/null || echo "没有下载到 yaml 文件"
 
       - name: Sync ACL4SSR template
         run: |
