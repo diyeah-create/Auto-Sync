@@ -3,6 +3,11 @@
 *.log
 .DS_Store
 
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
 # 忽略 node_modules 和其他依赖
 node_modules/
 .venv/
