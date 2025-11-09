@@ -84,6 +84,10 @@ def main():
     print("Clash 配置合并工具")
     print("=" * 60)
 
+    # 创建输出目录
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"\n✓ 输出目录已创建: {OUTPUT_DIR}")
+
     # 检查模板文件
     if not TEMPLATE_FILE.exists():
         print(f"❌ 模板文件不存在: {TEMPLATE_FILE}")
@@ -127,4 +131,3 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-    # 参考: https://github.com/unicode-org/cldr
