@@ -36,47 +36,49 @@ def save_yaml(data, file_path):
         print(f"❌ 保存文件失败 {file_path}: {e}")
         return False
 
-def merge_configs(template_data, subscription_data):
-    """合并模板和订阅配置"""
-    if not template_data or not subscription_data:
+def merge_all_proxies(subscription_files):
+    """从所有订阅文件中提取并合并代理节点"""
+    all_proxies = []
+    seen_servers = set()
+
+    for sub_file in subscription_files:
+        print(f"\n读取订阅文件: {sub_file.name}")
+        sub_data = load_yaml(sub_file)
+
+        if not sub_data or 'proxies' not in sub_data:
+            print(f"  ⚠️  文件中没有代理节点")
+            continue
+
+        proxies = sub_data['proxies']
+        print(f"  找到 {len(proxies)} 个代理节点")
+
+        # 去重：基于服务器地址和端口
+        for proxy in proxies:
+            server = proxy.get('server', '')
+            port = proxy.get('port', 0)
+            server_key = f"{server}:{port}"
+
+            if server and server_key not in seen_servers:
+                all_proxies.append(proxy)
+                seen_servers.add(server_key)
+
+    print(f"\n✓ 总共收集到 {len(all_proxies)} 个唯一代理节点")
+    return all_proxies
+
+def merge_with_template(template_data, all_proxies):
+    """将所有代理节点合并到模板中"""
+    if not template_data:
         return None
 
     # 复制模板
     merged = template_data.copy()
 
-    # 合并代理节点
-    if 'proxies' in subscription_data:
-        merged['proxies'] = subscription_data['proxies']
-        print(f"  ✓ 合并了 {len(subscription_data['proxies'])} 个代理节点")
+    # 替换代理节点
+    merged['proxies'] = all_proxies
 
-    # 如果订阅中有 proxy-groups，也可以选择性合并
-    if 'proxy-groups' in subscription_data:
-        # 这里可以根据需要决定是使用模板的策略组还是订阅的策略组
-        # 默认使用模板的策略组，但可以添加订阅中的节点到策略组
-        pass
+    print(f"✓ 已将 {len(all_proxies)} 个代理节点合并到模板")
 
     return merged
-
-def process_subscription_file(sub_file, template_data):
-    """处理单个订阅文件"""
-    print(f"\n处理订阅文件: {sub_file.name}")
-
-    # 加载订阅配置
-    sub_data = load_yaml(sub_file)
-    if not sub_data:
-        return False
-
-    # 合并配置
-    merged_data = merge_configs(template_data, sub_data)
-    if not merged_data:
-        print(f"  ❌ 合并配置失败")
-        return False
-
-    # 生成输出文件名
-    output_file = OUTPUT_DIR / sub_file.name
-
-    # 保存合并后的配置
-    return save_yaml(merged_data, output_file)
 
 def main():
     """主函数"""
@@ -115,19 +117,38 @@ def main():
 
     print(f"\n找到 {len(subscription_files)} 个订阅配置文件")
 
-    # 处理每个订阅文件
-    success_count = 0
-    for sub_file in subscription_files:
-        if process_subscription_file(sub_file, template_data):
-            success_count += 1
+    # 从所有订阅文件中提取并合并代理节点
+    all_proxies = merge_all_proxies(subscription_files)
+
+    if not all_proxies:
+        print("\n❌ 没有找到任何代理节点")
+        return 1
+
+    # 与模板合并
+    print("\n正在与 ACL4SSR 模板合并...")
+    merged_config = merge_with_template(template_data, all_proxies)
+
+    if not merged_config:
+        print("❌ 合并失败")
+        return 1
+
+    # 保存最终配置
+    output_file = OUTPUT_DIR / "clash.yaml"
+    print(f"\n保存最终配置到: {output_file}")
+
+    if not save_yaml(merged_config, output_file):
+        return 1
 
     # 输出结果
     print("\n" + "=" * 60)
-    print(f"处理完成: {success_count}/{len(subscription_files)} 个文件成功")
-    print(f"输出目录: {OUTPUT_DIR}")
+    print(f"✓ 配置生成成功！")
+    print(f"  输出文件: {output_file}")
+    print(f"  代理节点: {len(all_proxies)} 个")
+    print(f"  策略组: {len(merged_config.get('proxy-groups', []))} 个")
+    print(f"  规则数: {len(merged_config.get('rules', []))} 条")
     print("=" * 60)
 
-    return 0 if success_count > 0 else 1
+    return 0
 
 if __name__ == "__main__":
     exit(main())
