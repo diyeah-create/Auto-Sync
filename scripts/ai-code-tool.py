@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""同步指定仓库的最新发布资产。"""
+"""同步指定仓库的最新发布资产（仅元数据模式）。"""
 from __future__ import annotations
 
 import json
@@ -20,7 +20,13 @@ REPOSITORIES: List[Tuple[str, str]] = [
     ("Zheng-up", "zAugment"),
     ("wuqi-y", "auto-cursor-releases"),
     ("crispvibe", "Windsurf-Tool"),
+    ("yuzeguitarist", "Windsurf-Reset"),
 ]
+
+# 文件大小限制（字节），默认 10MB
+MAX_FILE_SIZE = int(os.environ.get("MAX_FILE_SIZE", 10 * 1024 * 1024))
+# 是否仅保存元数据
+METADATA_ONLY = os.environ.get("METADATA_ONLY", "false").lower() == "true"
 
 
 def fetch_json(url: str, token: str) -> Dict[str, object]:
@@ -41,6 +47,13 @@ def download_asset(asset: Dict[str, object], token: str, destination: Path) -> N
     asset_url = str(asset.get("url"))
     if not asset_url:
         raise RuntimeError("发布资产缺少下载地址")
+    
+    # 检查文件大小
+    asset_size = int(asset.get("size", 0))
+    if asset_size > MAX_FILE_SIZE:
+        print(f"  跳过 {destination.name} (大小: {asset_size / 1024 / 1024:.2f} MB，超过限制)")
+        return
+    
     headers = {
         "Accept": "application/octet-stream",
         "Authorization": f"token {token}",
@@ -82,16 +95,34 @@ def sync_repository(owner: str, name: str, token: str) -> bool:
         shutil.rmtree(project_dir)
     project_dir.mkdir(parents=True, exist_ok=True)
 
+    # 保存资产信息到 metadata.json
+    assets_info = []
     if assets:
         for asset in assets:
             asset_name = str(asset.get("name") or "").strip()
             if not asset_name:
                 continue
-            destination = project_dir / asset_name
-            print(f"下载 {owner}/{name} 的资产 {asset_name}")
-            download_asset(asset, token, destination)
+            
+            asset_info = {
+                "name": asset_name,
+                "size": asset.get("size"),
+                "download_url": asset.get("browser_download_url"),
+                "content_type": asset.get("content_type"),
+            }
+            assets_info.append(asset_info)
+            
+            # 如果不是仅元数据模式，且文件小于限制，则下载
+            if not METADATA_ONLY:
+                destination = project_dir / asset_name
+                print(f"下载 {owner}/{name} 的资产 {asset_name}")
+                try:
+                    download_asset(asset, token, destination)
+                except Exception as e:
+                    print(f"  下载失败: {e}")
+            else:
+                print(f"记录 {owner}/{name} 的资产信息 {asset_name}")
     else:
-        print(f"{owner}/{name} 的最新发布没有资产，跳过下载")
+        print(f"{owner}/{name} 的最新发布没有资产")
 
     version_file.write_text(tag_name, encoding="utf-8")
     metadata_file = project_dir / "metadata.json"
@@ -104,6 +135,7 @@ def sync_repository(owner: str, name: str, token: str) -> bool:
                 "html_url": release.get("html_url"),
                 "published_at": release.get("published_at"),
                 "fetched_at": os.environ.get("GITHUB_RUN_DATETIME"),
+                "assets": assets_info,
             },
             ensure_ascii=False,
             indent=2,
@@ -120,24 +152,27 @@ def main() -> None:
     if not token:
         raise RuntimeError("缺少 GITHUB_TOKEN 环境变量")
 
+    mode = "仅元数据" if METADATA_ONLY else f"下载文件（限制 {MAX_FILE_SIZE / 1024 / 1024:.0f} MB）"
+    print(f"同步模式: {mode}\n")
+
     TARGET_ROOT.mkdir(parents=True, exist_ok=True)
     changed: List[str] = []
 
     for owner, name in REPOSITORIES:
-        changed_flag = sync_repository(owner, name, token)
-        if changed_flag:
-            changed.append(f"{owner}/{name}")
+        try:
+            changed_flag = sync_repository(owner, name, token)
+            if changed_flag:
+                changed.append(f"{owner}/{name}")
+        except Exception as error:
+            print(f"错误: {error}", file=sys.stderr)
+            continue
 
     if changed:
         summary = "\n".join(changed)
-        print("以下仓库已更新:\n" + summary)
+        print(f"\n已更新的仓库:\n{summary}")
     else:
-        print("所有仓库均为最新版本")
+        print("\n所有仓库均为最新版本")
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as exc:  # pragma: no cover
-        print(f"同步过程中发生错误: {exc}", file=sys.stderr)
-        sys.exit(1)
+    main()
