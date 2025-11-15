@@ -12,7 +12,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 API_ROOT = "https://api.github.com"
-TARGET_ROOT = Path("artifacts")
+TARGET_ROOT = Path("Ai-Code-Tool")
 REPOSITORIES: List[Tuple[str, str]] = [
     ("zhaochengcube", "augment-token-mng"),
     ("zhaochengcube", "augment-code-auto"),
