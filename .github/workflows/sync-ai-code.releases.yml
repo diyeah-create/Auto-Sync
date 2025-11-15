@@ -26,11 +26,12 @@ jobs:
         id: datetime
         run: echo "utc=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
-      - name: 同步最新发布
+      - name: 同步最新发布（仅元数据）
         run: python scripts/ai-code-tool.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_RUN_DATETIME: ${{ steps.datetime.outputs.utc }}
+          METADATA_ONLY: 'true'
 
       - name: 检查是否有更新
         id: changes
@@ -47,7 +48,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add artifacts
-          git commit -m "chore: 更新外部发布版本"
+          git commit -m "chore: 更新外部发布版本信息"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
