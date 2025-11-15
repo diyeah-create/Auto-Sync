@@ -19,6 +19,7 @@ REPOSITORIES: List[Tuple[str, str]] = [
     ("Zheng-up", "augment-code-z"),
     ("Zheng-up", "zAugment"),
     ("wuqi-y", "auto-cursor-releases"),
+    ("crispvibe", "Windsurf-Tool"),
 ]
 
 
