@@ -31,8 +31,8 @@ jobs:
           echo "开始同步..."
           python scripts/ai-code-tool.py
           echo "同步完成"
-          echo "检查 artifacts 目录:"
-          ls -la artifacts/ || echo "artifacts 目录不存在"
+          echo "检查 Ai-Code-Tool 目录:"
+          ls -la Ai-Code-Tool/ || echo "Ai-Code-Tool 目录不存在"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_RUN_DATETIME: ${{ steps.datetime.outputs.utc }}
