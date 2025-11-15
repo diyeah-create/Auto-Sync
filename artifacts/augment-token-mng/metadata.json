@@ -1,0 +1,40 @@
+{
+  "assets": [
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/zhaochengcube/augment-token-mng/releases/download/v1.3.3/ATM.exe",
+      "name": "ATM.exe",
+      "size": 21317632
+    },
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/zhaochengcube/augment-token-mng/releases/download/v1.3.3/ATM_1.3.3_aarch64.dmg",
+      "name": "ATM_1.3.3_aarch64.dmg",
+      "size": 8191425
+    },
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/zhaochengcube/augment-token-mng/releases/download/v1.3.3/ATM_1.3.3_amd64.AppImage",
+      "name": "ATM_1.3.3_amd64.AppImage",
+      "size": 96385528
+    },
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/zhaochengcube/augment-token-mng/releases/download/v1.3.3/ATM_1.3.3_amd64.deb",
+      "name": "ATM_1.3.3_amd64.deb",
+      "size": 9457746
+    },
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/zhaochengcube/augment-token-mng/releases/download/v1.3.3/ATM_1.3.3_x64.dmg",
+      "name": "ATM_1.3.3_x64.dmg",
+      "size": 8514953
+    }
+  ],
+  "fetched_at": "2025-11-15T21:23:35Z",
+  "html_url": "https://github.com/zhaochengcube/augment-token-mng/releases/tag/v1.3.3",
+  "published_at": "2025-11-11T15:05:51Z",
+  "release_id": 261462530,
+  "repository": "zhaochengcube/augment-token-mng",
+  "tag": "v1.3.3"
+}
