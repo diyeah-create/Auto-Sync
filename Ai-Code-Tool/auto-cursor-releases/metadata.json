@@ -1,0 +1,34 @@
+{
+  "assets": [
+    {
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.2.0/auto-cursor_1.2.0_aarch64.dmg",
+      "name": "auto-cursor_1.2.0_aarch64.dmg",
+      "size": 19958367
+    },
+    {
+      "content_type": "application/vnd.debian.binary-package",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.2.0/auto-cursor_1.2.0_amd64.deb",
+      "name": "auto-cursor_1.2.0_amd64.deb",
+      "size": 28087058
+    },
+    {
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.2.0/auto-cursor_1.2.0_x64-setup.exe",
+      "name": "auto-cursor_1.2.0_x64-setup.exe",
+      "size": 21743786
+    },
+    {
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.2.0/auto-cursor_1.2.0_x64.dmg",
+      "name": "auto-cursor_1.2.0_x64.dmg",
+      "size": 20116632
+    }
+  ],
+  "fetched_at": "2025-11-15T21:54:38Z",
+  "html_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/tag/v1.2.0",
+  "published_at": "2025-11-09T03:39:34Z",
+  "release_id": 260888262,
+  "repository": "wuqi-y/auto-cursor-releases",
+  "tag": "v1.2.0"
+}

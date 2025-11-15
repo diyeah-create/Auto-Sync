@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-3.0.0-arm64.dmg",
+      "name": "Windsurf-Tool-3.0.0-arm64.dmg",
+      "size": 103810091
+    },
+    {
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-3.0.0-x64.dmg",
+      "name": "Windsurf-Tool-3.0.0-x64.dmg",
+      "size": 107775354
+    },
+    {
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-Setup-3.0.0.exe",
+      "name": "Windsurf-Tool-Setup-3.0.0.exe",
+      "size": 169346629
+    }
+  ],
+  "fetched_at": "2025-11-15T21:54:38Z",
+  "html_url": "https://github.com/crispvibe/Windsurf-Tool/releases/tag/3.0.0",
+  "published_at": "2025-11-14T08:26:47Z",
+  "release_id": 262350826,
+  "repository": "crispvibe/Windsurf-Tool",
+  "tag": "3.0.0"
+}
