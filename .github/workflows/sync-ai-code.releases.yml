@@ -27,7 +27,12 @@ jobs:
         run: echo "utc=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: 同步最新发布（仅元数据）
-        run: python scripts/ai-code-tool.py
+        run: |
+          echo "开始同步..."
+          python scripts/ai-code-tool.py
+          echo "同步完成"
+          echo "检查 artifacts 目录:"
+          ls -la artifacts/ || echo "artifacts 目录不存在"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_RUN_DATETIME: ${{ steps.datetime.outputs.utc }}
@@ -36,9 +41,13 @@ jobs:
       - name: 检查是否有更新
         id: changes
         run: |
+          git status
           if [[ -n "$(git status --porcelain)" ]]; then
+            echo "检测到更改:"
+            git status --porcelain
             echo "has_changes=true" >> $GITHUB_OUTPUT
           else
+            echo "没有检测到更改"
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
@@ -47,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add artifacts
+          git add -A
           git commit -m "chore: 更新外部发布版本信息"
           git push
         env:
