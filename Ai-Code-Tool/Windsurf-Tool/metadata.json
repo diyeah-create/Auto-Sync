@@ -2,27 +2,33 @@
   "assets": [
     {
       "content_type": "application/x-apple-diskimage",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-3.0.0-arm64.dmg",
-      "name": "Windsurf-Tool-3.0.0-arm64.dmg",
-      "size": 103810091
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.0.3/Windsurf-Tool-4.0.3-macOS-arm64.dmg",
+      "name": "Windsurf-Tool-4.0.3-macOS-arm64.dmg",
+      "size": 114623332
     },
     {
       "content_type": "application/x-apple-diskimage",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-3.0.0-x64.dmg",
-      "name": "Windsurf-Tool-3.0.0-x64.dmg",
-      "size": 107775354
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.0.3/Windsurf-Tool-4.0.3-macOS-x64.dmg",
+      "name": "Windsurf-Tool-4.0.3-macOS-x64.dmg",
+      "size": 118291387
     },
     {
       "content_type": "application/x-msdownload",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/3.0.0/Windsurf-Tool-Setup-3.0.0.exe",
-      "name": "Windsurf-Tool-Setup-3.0.0.exe",
-      "size": 169346629
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.0.3/Windsurf-Tool-Setup-4.0.3-arm64.exe",
+      "name": "Windsurf-Tool-Setup-4.0.3-arm64.exe",
+      "size": 93254442
+    },
+    {
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.0.3/Windsurf-Tool-Setup-4.0.3-x64.exe",
+      "name": "Windsurf-Tool-Setup-4.0.3-x64.exe",
+      "size": 90321769
     }
   ],
-  "fetched_at": "2025-11-15T21:54:38Z",
-  "html_url": "https://github.com/crispvibe/Windsurf-Tool/releases/tag/3.0.0",
-  "published_at": "2025-11-14T08:26:47Z",
-  "release_id": 262350826,
+  "fetched_at": "2025-11-16T15:24:31Z",
+  "html_url": "https://github.com/crispvibe/Windsurf-Tool/releases/tag/4.0.3",
+  "published_at": "2025-11-16T09:08:50Z",
+  "release_id": 262742375,
   "repository": "crispvibe/Windsurf-Tool",
-  "tag": "3.0.0"
+  "tag": "4.0.3"
 }
