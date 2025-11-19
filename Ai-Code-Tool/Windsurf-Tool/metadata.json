@@ -1,28 +1,40 @@
 {
   "assets": [
     {
-      "content_type": "application/zip",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.4.0/windows-x64.zip",
-      "name": "windows-x64.zip",
-      "size": 93998848
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/5.0.0/Windsurf-Tool-5.0.0-macOS-arm64.dmg",
+      "name": "Windsurf-Tool-5.0.0-macOS-arm64.dmg",
+      "size": 116019852
     },
     {
       "content_type": "application/x-apple-diskimage",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.4.0/Windsurf-Tool-4.4.1-macOS-arm64.dmg",
-      "name": "Windsurf-Tool-4.4.1-macOS-arm64.dmg",
-      "size": 115960685
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/5.0.0/Windsurf-Tool-5.0.0-macOS-x64.dmg",
+      "name": "Windsurf-Tool-5.0.0-macOS-x64.dmg",
+      "size": 119792756
     },
     {
-      "content_type": "application/x-apple-diskimage",
-      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/4.4.0/Windsurf-Tool-4.4.1-macOS-x64.dmg",
-      "name": "Windsurf-Tool-4.4.1-macOS-x64.dmg",
-      "size": 119764711
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/5.0.0/Windsurf-Tool-Setup-5.0.0-arm64.exe",
+      "name": "Windsurf-Tool-Setup-5.0.0-arm64.exe",
+      "size": 97553614
+    },
+    {
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/5.0.0/Windsurf-Tool-Setup-5.0.0-x64.exe",
+      "name": "Windsurf-Tool-Setup-5.0.0-x64.exe",
+      "size": 94659124
+    },
+    {
+      "content_type": "application/x-msdownload",
+      "download_url": "https://github.com/crispvibe/Windsurf-Tool/releases/download/5.0.0/Windsurf-Tool-Setup-5.0.0.exe",
+      "name": "Windsurf-Tool-Setup-5.0.0.exe",
+      "size": 191437192
     }
   ],
-  "fetched_at": "2025-11-18T15:31:21Z",
-  "html_url": "https://github.com/crispvibe/Windsurf-Tool/releases/tag/4.4.0",
+  "fetched_at": "2025-11-19T15:28:59Z",
+  "html_url": "https://github.com/crispvibe/Windsurf-Tool/releases/tag/5.0.0",
   "published_at": "2025-11-16T09:08:50Z",
   "release_id": 262742375,
   "repository": "crispvibe/Windsurf-Tool",
-  "tag": "4.4.0"
+  "tag": "5.0.0"
 }
