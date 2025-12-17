@@ -2,15 +2,15 @@
   "assets": [
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/Zheng-up/augment-code-z/releases/download/augment-code-z-v0.688.0/augment-code-z-0.688.0.vsix",
-      "name": "augment-code-z-0.688.0.vsix",
-      "size": 18901347
+      "download_url": "https://github.com/Zheng-up/augment-code-z/releases/download/augment-code-z-v0.691.0/augment-code-z-0.691.0.vsix",
+      "name": "augment-code-z-0.691.0.vsix",
+      "size": 18907441
     }
   ],
-  "fetched_at": "2025-12-16T15:32:14Z",
-  "html_url": "https://github.com/Zheng-up/augment-code-z/releases/tag/augment-code-z-v0.688.0",
-  "published_at": "2025-12-16T03:19:39Z",
-  "release_id": 270605207,
+  "fetched_at": "2025-12-17T15:32:49Z",
+  "html_url": "https://github.com/Zheng-up/augment-code-z/releases/tag/augment-code-z-v0.691.0",
+  "published_at": "2025-12-16T20:17:27Z",
+  "release_id": 270873520,
   "repository": "Zheng-up/augment-code-z",
-  "tag": "augment-code-z-v0.688.0"
+  "tag": "augment-code-z-v0.691.0"
 }
