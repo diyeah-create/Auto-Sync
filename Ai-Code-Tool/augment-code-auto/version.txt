@@ -1,1 +1,1 @@
-augment-vscode-modified-v0.691.0
+augment-vscode-modified-v0.696.0
