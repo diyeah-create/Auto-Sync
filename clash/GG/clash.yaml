@@ -510,6 +510,21 @@ rules:
 - GEOIP,CN,🎯 全球直连
 - MATCH,🐟 漏网之鱼
 proxies:
+- name: 荷兰 - 阿姆斯特丹 - Cloudflare, Inc. - 3
+  server: 172.67.194.187
+  port: 443
+  type: vless
+  uuid: 21f9985c-d363-4eee-957f-720e9e9f9b8d
+  tls: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: teams.live.com.afrcloud1.c01.kr
+  udp: true
+  client-fingerprint: chrome
+  servername: teams.live.com.afrcloud1.c01.kr
+  delay: 2622
 - cipher: auto
   name: 🔴🇭🇰[📺🎭🎪✨]_github.com/Ruk1ng001_1ad1d0ea
   network: none
