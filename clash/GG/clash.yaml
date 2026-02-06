@@ -510,21 +510,53 @@ rules:
 - GEOIP,CN,🎯 全球直连
 - MATCH,🐟 漏网之鱼
 proxies:
-- name: 荷兰 - 阿姆斯特丹 - Cloudflare, Inc. - 3
-  server: 172.67.194.187
+- name: 美国 - 聖荷西 - Cloudflare, Inc. - 15
+  server: 162.120.94.138
+  port: 2096
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: true
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  servername: sni.111000.indevs.in
+  delay: 1401
+- name: 美国 - 聖荷西 - Cloudflare, Inc. - 22
+  server: vip2.kaixincloud.top
   port: 443
   type: vless
-  uuid: 21f9985c-d363-4eee-957f-720e9e9f9b8d
+  uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
   tls: true
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /assets
+    headers:
+      Host: DiprOX.pages.DEV
+  udp: true
+  servername: DiprOX.pages.DEV
+  delay: 1593
+- name: 日本 - 成田市 - Cloudflare, Inc. - 1
+  server: mobile.twitter.now.cc
+  port: 443
+  type: vless
+  uuid: 4c642cae-1a6d-4e51-a1c3-fa5892437aa3
+  tls: true
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: teams.live.com.afrcloud1.c01.kr
+      Host: 5465765525.ccfly.tech
+    early-data-header-name: Sec-WebSocket-Protocol
+    max-early-data: 2048
   udp: true
-  client-fingerprint: chrome
-  servername: teams.live.com.afrcloud1.c01.kr
-  delay: 2622
+  servername: 5465765525.ccfly.tech
+  delay: 1001
 - alterId: '64'
   cipher: auto
   name: 🟡🇨🇳_github.com/Ruk1ng001_718283ff
@@ -1325,23 +1357,6 @@ proxies:
   tls: true
   type: http
   username: a6cf58d6-14d1-11eb-a8bf-f23c91cfbbc9
-- client-fingerprint: chrome
-  name: 🔴🇺🇸[🎬📺🎭🎪]_github.com/Ruk1ng001_17cab89a
-  network: ws
-  port: 443
-  server: mobile.twitter.now.cc
-  servername: 5465765525.ccfly.tech
-  tls: true
-  type: vless
-  udp: true
-  uuid: 4c642cae-1a6d-4e51-a1c3-fa5892437aa3
-  ws-opts:
-    headers:
-      Host: 5465765525.ccfly.tech
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/69.0.3497.100 Safari/537.36
-    path: /?ed=2048
-  xudp: true
 - name: 🟢🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_4d8f9a59
   password: 9d80dd14-ac44-11ee-a116-f23c9164ca5d
   port: 443
@@ -4366,23 +4381,6 @@ proxies:
   tls: true
   type: http
   username: f860f2da-5035-11ed-bb74-f23c9164ca5d
-- client-fingerprint: chrome
-  name: 🔴🇺🇸[🎬📺🎭🎪]_github.com/Ruk1ng001_549d9f1f
-  network: ws
-  port: 443
-  server: vip2.kaixincloud.top
-  servername: DiprOX.pages.DEV
-  tls: true
-  type: vless
-  udp: true
-  uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
-  ws-opts:
-    headers:
-      Host: DiprOX.pages.DEV
-      User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
-        Chrome/69.0.3497.100 Safari/537.36
-    path: /assets
-  xudp: true
 - name: 🔴🇮🇩[🤖📺🔍]_github.com/Ruk1ng001_82268813
   password: e3fdbd22-8c17-11ee-ace4-f23c913c8d2b
   port: 32233
