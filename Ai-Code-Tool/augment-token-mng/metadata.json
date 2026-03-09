@@ -2,39 +2,39 @@
   "assets": [
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.5/ATM.exe",
+      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.6/ATM.exe",
       "name": "ATM.exe",
-      "size": 34923008
+      "size": 34951680
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.5/ATM_1.9.5_aarch64.dmg",
-      "name": "ATM_1.9.5_aarch64.dmg",
-      "size": 12012300
+      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.6/ATM_1.9.6_aarch64.dmg",
+      "name": "ATM_1.9.6_aarch64.dmg",
+      "size": 12030109
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.5/ATM_1.9.5_amd64.AppImage",
-      "name": "ATM_1.9.5_amd64.AppImage",
-      "size": 102312440
+      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.6/ATM_1.9.6_amd64.AppImage",
+      "name": "ATM_1.9.6_amd64.AppImage",
+      "size": 102251000
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.5/ATM_1.9.5_amd64.deb",
-      "name": "ATM_1.9.5_amd64.deb",
-      "size": 15076776
+      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.6/ATM_1.9.6_amd64.deb",
+      "name": "ATM_1.9.6_amd64.deb",
+      "size": 15054386
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.5/ATM_1.9.5_x64.dmg",
-      "name": "ATM_1.9.5_x64.dmg",
-      "size": 12476955
+      "download_url": "https://github.com/cubezhao/augment-token-mng/releases/download/v1.9.6/ATM_1.9.6_x64.dmg",
+      "name": "ATM_1.9.6_x64.dmg",
+      "size": 12528949
     }
   ],
-  "fetched_at": "2026-03-08T15:32:30Z",
-  "html_url": "https://github.com/cubezhao/augment-token-mng/releases/tag/v1.9.5",
-  "published_at": "2026-03-08T05:23:53Z",
-  "release_id": 294342373,
+  "fetched_at": "2026-03-09T16:05:23Z",
+  "html_url": "https://github.com/cubezhao/augment-token-mng/releases/tag/v1.9.6",
+  "published_at": "2026-03-09T13:19:28Z",
+  "release_id": 294697731,
   "repository": "zhaochengcube/augment-token-mng",
-  "tag": "v1.9.5"
+  "tag": "v1.9.6"
 }
