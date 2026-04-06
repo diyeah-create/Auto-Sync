@@ -40,7 +40,7 @@ https://sub.azadnetch.workers.dev/AzadNetCH/Clash/main/AzadNet.txt
 https://raw.githubusercontent.com/Alvin9999/pac2/master/clash/1/config.yaml
 https://raw.githubusercontent.com/bingoYB/node_processing/main/dist/all.yaml
 https://raw.githubusercontent.com/igeekshare/GeekshareFreeNode/main/clash/Geekshare.yaml
-https://free.datiya.com/uploads/20260405-clash.yaml
-https://v2ray-clash.top/clash-subscription@a/20260405-list-1.yaml
-https://v2ray-clash.top/clash-subscription@b/20260405-list-2.yaml
-https://v2ray-clash.top/clash-subscription@c/20260405-list-3.yaml
+https://free.datiya.com/uploads/20260406-clash.yaml
+https://v2ray-clash.top/clash-subscription@a/20260406-list-1.yaml
+https://v2ray-clash.top/clash-subscription@b/20260406-list-2.yaml
+https://v2ray-clash.top/clash-subscription@c/20260406-list-3.yaml
