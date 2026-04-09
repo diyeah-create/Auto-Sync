@@ -1,34 +1,40 @@
 {
   "assets": [
     {
-      "content_type": "application/octet-stream",
-      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.4.0/auto-cursor_1.4.0_amd64_x86_64.AppImage",
-      "name": "auto-cursor_1.4.0_amd64_x86_64.AppImage",
-      "size": 107604472
+      "content_type": "application/x-apple-diskimage",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_aarch64.dmg",
+      "name": "auto-cursor_2.0.0_aarch64.dmg",
+      "size": 47068494
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.4.0/auto-cursor_1.4.0_amd64_x86_64.deb",
-      "name": "auto-cursor_1.4.0_amd64_x86_64.deb",
-      "size": 28020598
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_amd64_x86_64.AppImage",
+      "name": "auto-cursor_2.0.0_amd64_x86_64.AppImage",
+      "size": 107526648
     },
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.4.0/auto-cursor_1.4.0_x64-setup.exe",
-      "name": "auto-cursor_1.4.0_x64-setup.exe",
-      "size": 21698331
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_amd64_x86_64.deb",
+      "name": "auto-cursor_2.0.0_amd64_x86_64.deb",
+      "size": 27955458
+    },
+    {
+      "content_type": "application/octet-stream",
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_x64-setup.exe",
+      "name": "auto-cursor_2.0.0_x64-setup.exe",
+      "size": 35859559
     },
     {
       "content_type": "application/x-apple-diskimage",
-      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v1.4.0/auto-cursor_1.4.0_x64.dmg",
-      "name": "auto-cursor_1.4.0_x64.dmg",
-      "size": 20143964
+      "download_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_x64.dmg",
+      "name": "auto-cursor_2.0.0_x64.dmg",
+      "size": 31167490
     }
   ],
-  "fetched_at": "2026-03-21T15:34:40Z",
-  "html_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/tag/v1.4.0",
-  "published_at": "2026-03-21T07:12:38Z",
-  "release_id": 299697345,
+  "fetched_at": "2026-04-09T16:22:56Z",
+  "html_url": "https://github.com/wuqi-y/auto-cursor-releases/releases/tag/v2.0.0",
+  "published_at": "2026-04-09T04:54:18Z",
+  "release_id": 306891154,
   "repository": "wuqi-y/auto-cursor-releases",
-  "tag": "v1.4.0"
+  "tag": "v2.0.0"
 }
