@@ -2,15 +2,15 @@
   "assets": [
     {
       "content_type": "application/octet-stream",
-      "download_url": "https://github.com/cubezhao/augment-code-auto/releases/download/augment-vscode-modified-v0.840.4/augment-vscode-modified-v0.840.4.vsix",
-      "name": "augment-vscode-modified-v0.840.4.vsix",
-      "size": 16092821
+      "download_url": "https://github.com/cubezhao/augment-code-auto/releases/download/augment-vscode-modified-v0.840.5/augment-vscode-modified-v0.840.5.vsix",
+      "name": "augment-vscode-modified-v0.840.5.vsix",
+      "size": 16092951
     }
   ],
-  "fetched_at": "2026-04-17T16:06:45Z",
-  "html_url": "https://github.com/cubezhao/augment-code-auto/releases/tag/augment-vscode-modified-v0.840.4",
-  "published_at": "2026-04-17T02:11:22Z",
-  "release_id": 310138771,
+  "fetched_at": "2026-04-18T15:47:48Z",
+  "html_url": "https://github.com/cubezhao/augment-code-auto/releases/tag/augment-vscode-modified-v0.840.5",
+  "published_at": "2026-04-17T16:52:14Z",
+  "release_id": 310461094,
   "repository": "zhaochengcube/augment-code-auto",
-  "tag": "augment-vscode-modified-v0.840.4"
+  "tag": "augment-vscode-modified-v0.840.5"
 }
